@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="row ">
+     <div class="col-sm-10 col-md-8 col-lg-6 m-auto">
+        <div class="notify" *ngIf="notifyMessge">{{notifyMessge}}</div>
+       <div class="form-tap">
+          <button class="btn" (click)="changeView('logIn')" [class.active]="view == 'logIn'">Log in</button>
+          <button class="btn" (click)="changeView('signUp')" [class.active]="view == 'signUp'">Sign Up</button>
+       </div>
+       <!-- Start log in form -->
+      <form class=" py-4" *ngIf="view == 'logIn'" #lF="ngForm" (ngSubmit)="submitLogin(lF)">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+                class="form-control" 
+                id="email" 
+                placeholder="Eamil"
+                ngModel
+                name="email"
+                #email="ngModel" 
+                required type="email"
+                autocomplete="off">
+          <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+             Email is required
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input 
+                  type="password" 
+                  class="form-control" 
+                  id="Password" 
+                  placeholder="Password"
+                  ngModel 
+                  name="password" 
+                  #password="ngModel" 
+                  required 
+                  minlength="8">
+             <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+              <div *ngIf="password?.errors.required">
+                Password is required
+              </div>
+              <div *ngIf="password?.errors.minlength">
+                Password is minimum {{password?.errors.minlength.requiredLength}} character not {{password?.errors.minlength.actualLength}}
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-custom mr-2" [disabled]="!lF.valid" type="submit">Submit</button>
+          <!-- <button class="btn btn-danger" (click)="loginWithGoogle()">LogIn with Google</button> -->
+      </form>
+     
+      <!-- End log in form -->
+      <!-- Start sign up form -->
+      <form class=" py-4" *ngIf="view == 'signUp'" #sF="ngForm" (ngSubmit)="submitSignup(sF)">
+          <div class="form-group">
+              <label for="name">Name</label>
+              <input 
+                    class="form-control" 
+                    id="name" 
+                    placeholder="Name"
+                    ngModel
+                    name="name"
+                    #name="ngModel" 
+                    minlength="3"
+                    required type="text">
+                    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                        <div *ngIf="name?.errors.required">
+                          Password is required
+                        </div>
+                        <div *ngIf="name?.errors.minlength">
+                          Name is minimum {{name?.errors.minlength.requiredLength}} character not {{name?.errors.minlength.actualLength}}
+                        </div>
+            </div>
+          </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                      class="form-control" 
+                      id="email" 
+                      placeholder="Eamil"
+                      ngModel
+                      name="email"
+                      #email="ngModel" 
+                      required type="email"
+                      autocomplete="off">
+                <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                   Email is required
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="Password">Password</label>
+                  <input 
+                        type="password" 
+                        class="form-control" 
+                        id="Password" 
+                        placeholder="Password"
+                        ngModel 
+                        name="password" 
+                        #password="ngModel" 
+                        required 
+                        minlength="8">
+                   <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                    <div *ngIf="password?.errors.required">
+                      Password is required
+                    </div>
+                    <div *ngIf="password?.errors.minlength">
+                      Password is minimum {{password?.errors.minlength.requiredLength}} character not {{password?.errors.minlength.actualLength}}
+                    </div>
+                  </div>
+                </div>
+            <button class="btn btn-custom"  [disabled]="!sF.valid">Submit</button>
+        </form>
+        <!-- End sign up form -->
+     </div>
+  </div>
+</div>

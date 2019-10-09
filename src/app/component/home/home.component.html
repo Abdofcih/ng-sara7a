@@ -1,0 +1,16 @@
+<div class="container pt-3">
+  <h3 class="text-center text-green" *ngIf="!messagesList">Wait .....</h3>
+   <div class="text-center text-green" *ngIf="messagesList && messagesList.length === 0">
+     <h4>No messages yet</h4>
+     <h6>Go to profile and share your link</h6>
+    </div>
+    <div class="list-group">
+        <div  class="list-group-item" *ngFor="let message of messagesList">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Unkown</h5>
+            <small >{{message.date}}</small>
+          </div>
+          <p class="mb-1">{{message.body}}</p>
+        </div>
+    </div>
+</div>

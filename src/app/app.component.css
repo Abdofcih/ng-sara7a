@@ -1,0 +1,29 @@
+.navbar{
+    background-color: #10BBB3;
+    color: #ffffff
+}
+
+.navbar-brand img {
+    height: 35px;
+}
+.navbar-toggler{
+  cursor: pointer;
+}
+.line1, .line2, .line3 {
+    width: 23px;
+    height: 3px;
+    margin: 5px;
+    transition: all .6s;
+  }
+  
+  .change .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .change .line2 {
+    opacity: 0;
+  }
+  
+  .change .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }

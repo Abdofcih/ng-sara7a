@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/css/bootstrap.min.css';
+body{
+    background-color: #eeeeee
+}
+.form-control.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+.btn-custom{
+background-color: #10BBB3;
+color: #ffffff;
+cursor: pointer;
+}
+
+.notify{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #10bbb3b3;
+    color: #ffffff;
+    padding: 10px;
+    width: 70%;
+    font-size: 30px;
+    border-radius: 10px;
+    transition: 0.4s all ease-in-out;
+    z-index: 100;
+}
+.text-green{
+    color: #10BBB3
+}

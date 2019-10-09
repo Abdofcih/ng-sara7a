@@ -1,0 +1,21 @@
+<div class="container">
+  
+  <div class="row">
+    <div class="col-xs-10 col-sm-8 col-lg-6 m-auto pt-5">
+        <div class="notify" *ngIf="notifyMessge">{{notifyMessge}}</div>
+        <h3 class="text-center text-green" *ngIf="!userName">Waite .....</h3>
+        <h3 class="text-center text-green" *ngIf="userName">{{ "Sending to " +userName | titlecase}}</h3>
+      <div class="form-group mt-2">
+        <textarea class="form-controle w-100 p-2"
+                 name="message" 
+                 id="" 
+                 cols="30" 
+                 rows="10" 
+                 #message
+                 placeholder="Write your message"></textarea>
+      </div>
+      <button class="btn btn-custom" (click)="sendMessage(message)"> Send </button>
+    </div>
+  </div>
+  
+</div>
